@@ -1,10 +1,7 @@
-import React from "react";
 // import Logo from "./Logo";
 import Link from "next/link";
 
-type Props = {};
-
-const AppBar = (props: Props) => {
+const AppBar = () => {
   return (
     <div className="max-h-20 py-8">
       <div className="flex max-h-12 flex-row items-center">

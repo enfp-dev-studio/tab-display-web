@@ -2,12 +2,9 @@ import { type AppType } from "next/app";
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import React from "react";
-import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
 import "../styles/globals.css";
 import Layout from "../components/Layout";
-
-import { api } from "../utils/api";
 
 const DEFAULT_SEO = {
   title: "Tab Display: Android Tablet as MacBook External Display",
@@ -56,4 +53,4 @@ const MyApp: AppType<{ session: Session | null }> = ({
   );
 };
 
-export default api.withTRPC(MyApp);
+export default MyApp;

@@ -23,7 +23,7 @@ const Tablet = (props: Props) => {
               <Image
                 // fill={true}
                 alt="Ray So"
-                src="/assets/ray-so-export-right.webp"
+                src="/assets/code-sample-right.webp"
                 width={280}
                 height={261}
                 style={{

@@ -23,7 +23,7 @@ const MacBook = (props: Props) => {
               <Image
                 // fill={true}
                 alt="Ray So2"
-                src="/assets/ray-so-export-left.webp"
+                src="/assets/code-sample-left.webp"
                 width={280}
                 height={261}
                 style={{
