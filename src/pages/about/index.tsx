@@ -23,7 +23,7 @@ const About = (props: Props) => {
               Tab Display
             </div>
           </div>
-          <p className="text-justify">About Tab Display ...</p>
+          <p className="text-justify">Coming Soon ...</p>
           <div className="flex grow flex-row items-center space-x-4">
             <Image
               width={48}

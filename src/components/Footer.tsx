@@ -14,7 +14,7 @@ type LinkListProps = {
   links: LinkLabel[];
 };
 
-const mailAddress = "contact@enfpdev.com";
+export const mailAddress = "contact@enfpdev.com";
 
 const LinkList = (props: LinkListProps) => {
   return (
@@ -34,12 +34,12 @@ const Footer = () => {
 
   return (
     <div className="w-full text-center">
-      <div className="md:grid md:w-full md:grid-cols-3">
+      {/* <div className="">
         <div className="flex w-full">
           <LinkList
             title="Product"
             links={[
-              { title: "Pricing", link: "/pricing" },
+              // { title: "Pricing", link: "/pricing" },
               { title: "How To Use", link: "/usage" },
             ]}
           />
@@ -69,7 +69,7 @@ const Footer = () => {
             ]}
           />
         </div>
-      </div>
+      </div> */}
       <p className="my-6 text-sm md:mt-24">
         &copy; Copyright ENFP-Dev-Studio {new Date().getFullYear()}. All rights
         reserved.

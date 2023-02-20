@@ -18,7 +18,9 @@ const Usage = (props: Props) => {
           <h1 className="mx-auto max-w-4xl text-2xl font-bold leading-[1.2em]">
             How To Use
           </h1>
-          <p className="leading-16 !important mx-auto mt-8 max-w-xl text-center text-xl opacity-70"></p>
+          <p className="leading-16 !important mx-auto mt-8 max-w-xl text-center text-xl opacity-70">
+            Coming Soon ...
+          </p>
         </>
       </div>
     </div>

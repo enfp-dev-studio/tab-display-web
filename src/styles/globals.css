@@ -5,6 +5,16 @@
 .html {
   font-family: "Inter", sans-serif;
   background-color: #18181b;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+-webkit-scrollbar {
+  display: none;
+}
+
+-moz-scrollbar {
+  display: none;
 }
 
 /*! Devices.css v0.2.0 | MIT License | github.com/picturepan2/devices.css */
