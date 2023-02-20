@@ -15,7 +15,7 @@ const Tablet = (props: Props) => {
   }, [ref.current]);
 
   return (
-    <div className="hidden w-full md:flex md:justify-center">
+    <div className="hidden w-full px-6 md:flex md:justify-start">
       <div className="device">
         <div className="device-surface-pro-2017 self-center">
           <div className="device-frame">

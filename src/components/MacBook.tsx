@@ -15,7 +15,7 @@ const MacBook = (props: Props) => {
   }, [ref.current]);
 
   return (
-    <div className="hidden w-full md:flex md:justify-center">
+    <div className="hidden w-full md:flex md:justify-end">
       <div className="device">
         <div className="device-macbook device-spacegray">
           <div className="device-frame">

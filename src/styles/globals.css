@@ -48,7 +48,7 @@
 
 .device-macbook {
   height: 432px;
-  width: 680px;
+  width: 640px;
 }
 
 .device-macbook .device-frame {
@@ -103,7 +103,7 @@
   height: 4px;
   margin-top: -10px;
   position: relative;
-  width: 680px;
+  width: 640px;
   z-index: 9;
 }
 
@@ -136,7 +136,7 @@
   left: -4px;
   margin: 0 auto;
   top: 4px;
-  width: 680px;
+  width: 640px;
 }
 
 .device-macbook.device-gold .device-frame {

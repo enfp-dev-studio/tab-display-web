@@ -61,10 +61,14 @@ export default function Main() {
             </Button>
           </div>
         </div>
-        <div className="w-screen py-24">
-          <div className="grid grid-cols-2 place-content-center">
-            <MacBook></MacBook>
-            <Tablet></Tablet>
+        <div className="flex justify-center py-24">
+          <div className="container grid grid-cols-2 self-center">
+            <div className="w-full">
+              <MacBook></MacBook>
+            </div>
+            <div className="">
+              <Tablet></Tablet>
+            </div>
           </div>
         </div>
       </div>
