@@ -13,7 +13,7 @@ const Contribute = (props: Props) => {
           How can you contribute?
         </h1>
         <p className="leading-16 !important mx-auto mt-8 max-w-xl text-justify text-xl">
-          Please share Capture Note with others and leave a review on the App
+          Please share Tab Display with others and leave a review on the App
           Store. This will be of great help to me. If you wish, you can leave a
           small donation to support development.
         </p>
