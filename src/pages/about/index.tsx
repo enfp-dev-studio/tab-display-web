@@ -13,9 +13,9 @@ const About = (props: Props) => {
           {/* <button>{t('change-locale', { changeTo })}</button> */}
           <div className="flex grow space-x-4">
             <Image
-              width={48}
-              height={48}
-              src="/app_bar_logo.webp"
+              width={64}
+              height={64}
+              src="/assets/logo.webp"
               className="object-contain"
               alt={""}
             ></Image>

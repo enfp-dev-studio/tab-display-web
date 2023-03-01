@@ -8,8 +8,8 @@ import Head from "next/head";
 import MacBook from "../components/MacBook";
 import Tablet from "../components/Tablet";
 import router from "next/router";
-import Button from "../components/Button";
-import { env } from "../env.mjs";
+import Button, { AndroidButton, AppleButton } from "../components/Button";
+// import { env } from "../env.mjs";
 
 const isMacOS = () => {
   const userAgent =
@@ -46,35 +46,63 @@ export default function Main() {
       {/* <Head></Head> */}
       <div className="h-screen w-screen text-white">
         <div className="flex flex-col items-center justify-center pt-24">
-          <h1 className="text-7xl font-semibold">Tab Display</h1>
+          <h1 className="text-5xl font-bold">
+            Take Your Workflow to the Next Level
+          </h1>
+          <p className="max-w-2xl pt-5 text-center text-2xl font-medium text-primary opacity-75 shadow-sm">
+            Seamlessly Transform Your Android Tablet into a MacBook External
+            Display
+          </p>
+          {/* <h1 className="text-7xl font-semibold">Tab Display</h1>
           <p className="max-w-3xl pt-5 text-center text-2xl font-medium text-primary shadow-sm">
             Take Your Workflow to the Next Level: Seamlessly Transform Your
             Android Tablet into a MacBook External Display
-          </p>
-          <div className="mt-10 flex justify-center">
-            <Button
-              onClick={() => {
-                getDownloadLink().then((link) => {
-                  if (link) {
-                    console.log(link);
-                    router.push(link);
-                  } else {
-                    alert("Error: Failed tos get download link");
-                  }
-                });
-              }}
-            >
-              Download
-            </Button>
-          </div>
+          </p> */}
         </div>
-        <div className="flex justify-center py-24">
+        <div className="mt-20 flex justify-center">
           <div className="container grid grid-cols-2 self-center">
             <div className="w-full">
-              <MacBook></MacBook>
+              <div className="flex justify-center">
+                <AppleButton
+                  onClick={() => {
+                    getDownloadLink().then((link) => {
+                      if (link) {
+                        console.log(link);
+                        router.push(link);
+                      } else {
+                        alert("Error: Failed tos get download link");
+                      }
+                    });
+                  }}
+                >
+                  Download
+                </AppleButton>
+              </div>
+              <div className="mt-10">
+                <MacBook></MacBook>
+              </div>
             </div>
             <div className="">
-              <Tablet></Tablet>
+              <div className="flex justify-center">
+                <AndroidButton
+                  onClick={() => {
+                    alert("Coming Soon!")
+                    // getDownloadLink().then((link) => {
+                    //   if (link) {
+                    //     console.log(link);
+                    //     router.push(link);
+                    //   } else {
+                    //     alert("Error: Failed tos get download link");
+                    //   }
+                    // });
+                  }}
+                >
+                  Play Store
+                </AndroidButton>
+              </div>
+              <div className="mt-10">
+                <Tablet></Tablet>
+              </div>
             </div>
           </div>
         </div>
