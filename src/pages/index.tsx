@@ -20,16 +20,22 @@ const isMacOS = () => {
 };
 
 export default function Main() {
-  const getDownloadLink = async (): Promise<string | undefined> => {
+  const getDownloadLink = async (): Promise<string | void> => {
     if (!isMacOS()) {
-      alert("Tab Display is only available for macOS");
+      alert("Tab Display is only available for Mac OS X");
     }
     try {
       const response = await fetch(
-        `https://api.github.com/repos/enfp-dev-studio/capture-note-updater/releases/latest`
+        `https://api.github.com/repos/enfp-dev-studio/tab-display-updater/releases/latest`
       );
-      const data = await response.json();
-      return data;
+      const latestRelease = await response.json();
+      const asset = latestRelease?.assets?.find((asset: any) =>
+        asset.name.toString().includes(".dmg")
+      );
+      // TODO x64, arm64 handling
+      if (asset) {
+        return asset.browser_download_url;
+      }
     } catch (error) {
       console.error(error);
     }
@@ -50,9 +56,10 @@ export default function Main() {
               onClick={() => {
                 getDownloadLink().then((link) => {
                   if (link) {
+                    console.log(link);
                     router.push(link);
                   } else {
-                    alert("Error: Could not get download link");
+                    alert("Error: Failed tos get download link");
                   }
                 });
               }}
