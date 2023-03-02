@@ -21,6 +21,12 @@ const Tablet = (props: Props) => {
           <div className="device-frame">
             <div className="absolute inset-2 items-center justify-center">
               <Image
+                src={"/assets/tabletbg.webp"}
+                alt=""
+                fill
+                style={{ borderRadius: 10 }}
+              ></Image>
+              <Image
                 // fill={true}
                 alt="Ray So"
                 src="/assets/code-sample-right.webp"

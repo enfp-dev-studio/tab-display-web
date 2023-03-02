@@ -21,6 +21,12 @@ const MacBook = (props: Props) => {
           <div className="device-frame">
             <div className="absolute inset-2">
               <Image
+                src={"/assets/macbookbg.webp"}
+                style={{ borderRadius: 10 }}
+                alt=""
+                fill={true}
+              ></Image>
+              <Image
                 // fill={true}
                 alt="Ray So2"
                 src="/assets/code-sample-left.webp"
