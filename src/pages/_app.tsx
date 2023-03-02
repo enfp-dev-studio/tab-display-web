@@ -34,7 +34,7 @@ const DEFAULT_SEO = {
   additionalMetaTags: [
     {
       name: "google-site-verification",
-      content: "",
+      content: "8cQSD-YmLYyjhiW6x5AF1ZLRgk9WYcZJOZtldEzHUjM",
     },
   ],
 };
