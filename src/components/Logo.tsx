@@ -1,8 +1,6 @@
 import Image from "next/image";
 
-type Props = {};
-
-const Logo = (props: Props) => {
+const Logo = () => {
   return (
     <Image
       // fill={true}

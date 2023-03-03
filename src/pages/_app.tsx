@@ -1,6 +1,4 @@
 import { type AppType } from "next/app";
-import { type Session } from "next-auth";
-import { SessionProvider } from "next-auth/react";
 import React from "react";
 import { DefaultSeo } from "next-seo";
 import "../styles/globals.css";
@@ -39,17 +37,14 @@ const DEFAULT_SEO = {
   ],
 };
 
-const MyApp: AppType<{ session: Session | null }> = ({
-  Component,
-  pageProps: { session, ...pageProps },
-}) => {
+const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <SessionProvider session={session}>
+    <>
       <DefaultSeo {...DEFAULT_SEO} />
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </SessionProvider>
+    </>
   );
 };
 

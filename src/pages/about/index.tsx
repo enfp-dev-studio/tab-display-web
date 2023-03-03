@@ -23,7 +23,22 @@ const About = (props: Props) => {
               Tab Display
             </div>
           </div>
-          <p className="text-justify">Coming Soon ...</p>
+          <p className="text-justify">
+            <p>
+              Tab Display is an Android application that allows users to
+              seamlessly transform their Android tablet into an external display
+              for their MacBook. With this app, users can extend their MacBook
+              screen and receive video of the virtual display on their Android
+              tablet
+            </p>
+            <br></br>
+            <p>
+              The app uses WebRTC technology internally to ensure that the video
+              is streamed smoothly and without any lag. This means that users
+              can enjoy a high-quality display experience without any
+              interruptions or delays
+            </p>
+          </p>
           <div className="flex grow flex-row items-center space-x-4">
             <Image
               width={48}
