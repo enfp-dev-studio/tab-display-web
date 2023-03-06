@@ -4,6 +4,7 @@ specifiers:
   '@emotion/react': ^11.10.5
   '@emotion/styled': ^11.10.5
   '@headlessui/react': ^1.7.11
+  '@next/font': ^13.2.3
   '@prisma/client': ^4.9.0
   '@trpc/client': ^10.9.0
   '@trpc/next': ^10.9.0
@@ -38,6 +39,7 @@ dependencies:
   '@emotion/react': 11.10.5_pmekkgnqduwlme35zpnqhenc34
   '@emotion/styled': 11.10.5_g6cddab2ma6w7rmdnelgn6dq2a
   '@headlessui/react': 1.7.11_biqbaboplfbrettd7655fr4n2y
+  '@next/font': 13.2.3
   '@prisma/client': 4.10.1_prisma@4.10.1
   '@trpc/client': 10.11.1_@trpc+server@10.11.1
   '@trpc/next': 10.11.1_4sobkcsyi5f3wvc37xvpymjdhy
@@ -377,6 +379,10 @@ packages:
     dependencies:
       glob: 7.1.7
     dev: true
+
+  /@next/font/13.2.3:
+    resolution: {integrity: sha512-7EHzk0f7FVYICLUZTpyPk93IfcTUao++Xt1Sgb+Zk5dVOCYHabqLtlF5ywSoXIqyFlo0qlshEBxsrzHAGTWkDw==}
+    dev: false
 
   /@next/swc-android-arm-eabi/13.1.6:
     resolution: {integrity: sha512-F3/6Z8LH/pGlPzR1AcjPFxx35mPqjE5xZcf+IL+KgbW9tMkp7CYi1y7qKrEWU7W4AumxX/8OINnDQWLiwLasLQ==}
