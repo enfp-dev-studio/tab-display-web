@@ -133,7 +133,7 @@ const Privacy = () => {
                 listStyleType: "disc",
               }}
             >
-              To facilitate our Service;
+              To facilitate our Service
             </li>
           </ul>
           <ul
