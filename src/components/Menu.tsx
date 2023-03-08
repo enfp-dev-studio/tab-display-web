@@ -73,10 +73,11 @@ export default function AppBarMenu() {
                 {({ active }) => (
                   <button
                     onClick={() => {
-                      window.open(
-                        "https://www.notion.so/enfp-dev-studio/Privacy-Policy-abd2ac45e0884c1a848420426a383983?pvs=4",
-                        "_blank"
-                      );
+                      router.push("/privacy")
+                      // window.open(
+                      //   "https://www.notion.so/enfp-dev-studio/Privacy-Policy-abd2ac45e0884c1a848420426a383983?pvs=4",
+                      //   "_blank"
+                      // );
                     }}
                     className={`${
                       active ? "bg-violet-500 text-white" : "text-gray-900"
