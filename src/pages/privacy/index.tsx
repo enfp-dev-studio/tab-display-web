@@ -145,7 +145,7 @@ const Privacy = () => {
                 listStyleType: "disc",
               }}
             >
-              To provide the Service on our behalf;
+              To provide the Service on our behalf
             </li>
           </ul>
           <ul
@@ -157,7 +157,7 @@ const Privacy = () => {
                 listStyleType: "disc",
               }}
             >
-              To perform Service-related services; or
+              To perform Service-related services or
             </li>
           </ul>
           <ul
