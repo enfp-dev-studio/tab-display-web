@@ -86,7 +86,10 @@ export default function Main() {
               <div className="flex justify-center">
                 <AndroidButton
                   onClick={() => {
-                    alert("Coming Soon!")
+                    window.open(
+                      "https://play.google.com/store/apps/details?id=com.enfpdev.tabdisplay",
+                      "_blank"
+                    );
                     // getDownloadLink().then((link) => {
                     //   if (link) {
                     //     console.log(link);
