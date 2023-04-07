@@ -29,13 +29,29 @@ export default function Main() {
         `https://api.github.com/repos/enfp-dev-studio/tab-display-updater/releases/latest`
       );
       const latestRelease = await response.json();
-      const asset = latestRelease?.assets?.find((asset: any) =>
-        asset.name.toString().includes(".dmg")
-      );
-      // TODO x64, arm64 handling
-      if (asset) {
-        return asset.browser_download_url;
+      const userAgent =
+        typeof window !== "undefined" ? window.navigator.userAgent : "";
+
+      let downloadUrl = "";
+      if (userAgent?.includes("Mac OS X")) {
+        if (userAgent?.indexOf("Intel") !== -1) {
+          const asset = latestRelease?.assets?.find((asset: any) =>
+            asset.name.toString().includes("x64.dmg")
+          );
+          downloadUrl = asset?.browser_download_url
+            ? asset.browser_download_url
+            : "";
+        } else {
+          const asset = latestRelease?.assets?.find((asset: any) =>
+            asset.name.toString().includes("arm64.dmg")
+          );
+          downloadUrl = asset?.browser_download_url
+            ? asset.browser_download_url
+            : "";
+        }
       }
+
+      return downloadUrl;
     } catch (error) {
       console.error(error);
     }
