@@ -3,6 +3,7 @@ import React from "react";
 import { DefaultSeo } from "next-seo";
 import "../styles/globals.css";
 import Layout from "../components/Layout";
+import Script from "next/script";
 
 const DEFAULT_SEO = {
   title: "Tab Display: Android Tablet as MacBook External Display",
@@ -41,6 +42,20 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <>
       <DefaultSeo {...DEFAULT_SEO} />
+      {/* https://nextjs.org/docs/messages/next-script-for-ga */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-WWVM1VXH7N"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-WWVM1VXH7N');
+        `}
+      </Script>
       <Layout>
         <Component {...pageProps} />
       </Layout>
