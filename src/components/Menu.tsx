@@ -49,7 +49,23 @@ export default function AppBarMenu() {
                       active ? "bg-primary text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
-                    Contact
+                    Mail To Developer
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    onClick={() => {
+                      router.push(
+                        `https://discord.com/channels/983680463094837258/1104304324324114542`
+                      );
+                    }}
+                    className={`${
+                      active ? "bg-primary text-white" : "text-gray-900"
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                  >
+                    Discord
                   </button>
                 )}
               </Menu.Item>
@@ -73,7 +89,7 @@ export default function AppBarMenu() {
                 {({ active }) => (
                   <button
                     onClick={() => {
-                      router.push("/privacy")
+                      router.push("/privacy");
                       // window.open(
                       //   "https://www.notion.so/enfp-dev-studio/Privacy-Policy-abd2ac45e0884c1a848420426a383983?pvs=4",
                       //   "_blank"
