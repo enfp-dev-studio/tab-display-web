@@ -9,6 +9,7 @@ import MacBook from "../components/MacBook";
 import Tablet from "../components/Tablet";
 import router from "next/router";
 import Button, { AndroidButton, AppleButton } from "../components/Button";
+import { useEffect, useState } from "react";
 // import { env } from "../env.mjs";
 
 const isMacOS = () => {
@@ -20,7 +21,17 @@ const isMacOS = () => {
 };
 
 export default function Main() {
-  const getDownloadLink = async (): Promise<string | void> => {
+  const [downloads, setDonwloads] = useState<
+    { name: string; arch: string; url: string }[]
+  >([]);
+  const getDownloadLinks = async (): Promise<
+    | {
+        name: string;
+        url: string;
+        arch: string;
+      }[]
+    | void
+  > => {
     if (!isMacOS()) {
       alert("Tab Display is only available for Mac OS X");
     }
@@ -32,35 +43,54 @@ export default function Main() {
       const userAgent =
         typeof window !== "undefined" ? window.navigator.userAgent : "";
 
-      let downloadUrl = "";
+      let downloads: {
+        name: string;
+        url: string;
+        arch: string;
+      }[] = [];
       if (userAgent?.includes("Mac OS X")) {
-        if (userAgent?.indexOf("Intel") !== -1) {
-          const asset = latestRelease?.assets?.find((asset: any) =>
-            asset.name.toString().includes("x64.dmg")
-          );
-          downloadUrl = asset?.browser_download_url
-            ? asset.browser_download_url
-            : "";
-        } else {
-          const asset = latestRelease?.assets?.find((asset: any) =>
-            asset.name.toString().includes("arm64.dmg")
-          );
-          downloadUrl = asset?.browser_download_url
-            ? asset.browser_download_url
-            : "";
+        const x64Asset = latestRelease?.assets?.find((asset: any) =>
+          asset.name.toString().includes("x64.dmg")
+        );
+        if (x64Asset) {
+          downloads.push({
+            name: "Mac OS X",
+            url: x64Asset?.browser_download_url
+              ? x64Asset.browser_download_url
+              : "",
+            arch: "(Intel)",
+          });
         }
+        const arm64Asset = latestRelease?.assets?.find((asset: any) =>
+          asset.name.toString().includes("arm64.dmg")
+        );
+        if (arm64Asset) {
+          downloads.push({
+            name: "Mac OS X",
+            url: arm64Asset?.browser_download_url
+              ? arm64Asset.browser_download_url
+              : "",
+            arch: "(Apple Silicon)",
+          });
+        }
+      } else {
+        alert("Tab Display is only available for Mac OS X");
       }
 
-      return downloadUrl;
+      setDonwloads(downloads);
     } catch (error) {
       console.error(error);
     }
   };
 
+  useEffect(() => {
+    getDownloadLinks();
+  }, []);
+
   return (
     <>
       {/* <Head></Head> */}
-      <div className="h-screen w-screen text-white">
+      <div className="h-screen text-white">
         <div className="flex flex-col items-center justify-center pt-24">
           <h1 className="text-5xl font-bold">
             Take Your Workflow to the Next Level
@@ -78,21 +108,23 @@ export default function Main() {
         <div className="mt-20 flex justify-center">
           <div className="container grid grid-cols-2 self-center">
             <div className="w-full">
-              <div className="flex justify-center">
-                <AppleButton
-                  onClick={() => {
-                    getDownloadLink().then((link) => {
-                      if (link) {
-                        console.log(link);
-                        router.push(link);
-                      } else {
-                        alert("Error: Failed tos get download link");
-                      }
-                    });
-                  }}
-                >
-                  Download
-                </AppleButton>
+              <div className="flex w-full justify-center gap-2">
+                {downloads.map((download) => (
+                  <div className="w-1/4">
+                    <AppleButton
+                      onClick={() => {
+                        if (download.url) {
+                          console.log(download.url);
+                          router.push(download.url);
+                        } else {
+                          alert("Error: Failed tos get download link");
+                        }
+                      }}
+                      title={download.name}
+                      arch={download.arch}
+                    />
+                  </div>
+                ))}
               </div>
               <div className="mt-10">
                 <MacBook></MacBook>
@@ -100,24 +132,26 @@ export default function Main() {
             </div>
             <div className="">
               <div className="flex justify-center">
-                <AndroidButton
-                  onClick={() => {
-                    window.open(
-                      "https://play.google.com/store/apps/details?id=com.enfpdev.tabdisplay",
-                      "_blank"
-                    );
-                    // getDownloadLink().then((link) => {
-                    //   if (link) {
-                    //     console.log(link);
-                    //     router.push(link);
-                    //   } else {
-                    //     alert("Error: Failed tos get download link");
-                    //   }
-                    // });
-                  }}
-                >
-                  Play Store
-                </AndroidButton>
+                <div className="w-1/4">
+                  <AndroidButton
+                    onClick={() => {
+                      window.open(
+                        "https://play.google.com/store/apps/details?id=com.enfpdev.tabdisplay",
+                        "_blank"
+                      );
+                      // getDownloadLink().then((link) => {
+                      //   if (link) {
+                      //     console.log(link);
+                      //     router.push(link);
+                      //   } else {
+                      //     alert("Error: Failed tos get download link");
+                      //   }
+                      // });
+                    }}
+                  >
+                    Play Store
+                  </AndroidButton>
+                </div>
               </div>
               <div className="mt-10">
                 <Tablet></Tablet>
